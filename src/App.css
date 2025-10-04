@@ -272,6 +272,26 @@
   display: inline-block;
 }
 
+/* Showreel Video */
+.showreel-container {
+  width: 100%;
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+.showreel-video {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 5 / 4;
+  border-radius: 24px;
+  display: block;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+  object-fit: contain;
+  background-color: transparent;
+}
+
 /* Portfolio Content */
 .porto-portfolio {
   margin-top: 5px;
@@ -607,6 +627,17 @@
     border-radius: 15px;
     min-width: 70px;
   }
+  
+  .showreel-container {
+    margin: 30px auto;
+    padding: 0 15px;
+    max-width: 700px;
+  }
+  
+  .showreel-video {
+    border-radius: 20px;
+    aspect-ratio: 5 / 4;
+  }
 }
 
 @media (max-width: 480px) {
@@ -627,6 +658,525 @@
     left: 8px;
     border-radius: 12px;
     min-width: 60px;
+  }
+  
+  .showreel-container {
+    margin: 20px auto;
+    padding: 0 10px;
+    max-width: 500px;
+  }
+  
+  .showreel-video {
+    border-radius: 16px;
+    aspect-ratio: 5 / 4;
+  }
+}
+
+/* ServicesPage Styles */
+.services-container {
+  background-color: #ffffff;
+  background-image: radial-gradient(circle, #878787 1px, transparent 1px);
+  background-size: 20px 20px;
+  min-height: 100vh;
+  width: 100%;
+  padding: 60px 20px;
+  box-sizing: border-box;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.services-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.services-title {
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  font-weight: 700;
+  color: #333;
+  margin: 0 0 20px 0;
+  letter-spacing: 2px;
+}
+
+.services-subtitle {
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  font-weight: 400;
+  color: #666;
+  margin: 0;
+  letter-spacing: 1px;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto 40px auto;
+  padding: 0 20px;
+}
+
+.service-card {
+  background: white;
+  padding: 40px 30px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.service-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, #333 0%, #666 100%);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+}
+
+.service-card:hover::before {
+  transform: scaleX(1);
+}
+
+.service-icon {
+  font-size: clamp(2.5rem, 4vw, 4rem);
+  margin-bottom: 25px;
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.service-card:hover .service-icon {
+  transform: scale(1.1) rotate(5deg);
+}
+
+.service-title {
+  font-size: clamp(1.4rem, 2.5vw, 2rem);
+  font-weight: 600;
+  color: #333;
+  margin: 0 0 15px 0;
+  letter-spacing: 0.5px;
+}
+
+.service-description {
+  font-size: clamp(0.95rem, 1.5vw, 1.1rem);
+  font-weight: 400;
+  color: #666;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.logo-slide-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.logo-slide-title {
+  font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+  font-weight: 600;
+  color: #333;
+  margin: 0 0 30px 0;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+/* Custom LogoLoop Styling for Services Page */
+.services-container .logoloop {
+  padding: 20px 0;
+  overflow: hidden;
+}
+
+.services-container .logoloop__item {
+  list-style: none;
+}
+
+.services-container .logoloop__item::before,
+.services-container .logoloop__item::after {
+  display: none !important;
+}
+
+.services-container .logoloop__item img {
+  filter: grayscale(100%) opacity(0.6);
+  transition: all 0.3s ease;
+}
+
+.services-container .logoloop__item:hover img {
+  filter: grayscale(0%) opacity(1);
+  transform: scale(1.1);
+}
+
+.services-container .logoloop__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Responsive Services */
+@media (max-width: 768px) {
+  .services-container {
+    background-size: 18px 18px;
+    padding: 50px 15px;
+  }
+  
+  .services-header {
+    margin-bottom: 40px;
+  }
+  
+  .services-grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+    padding: 0 15px;
+    margin-bottom: 30px;
+  }
+  
+  .service-card {
+    padding: 35px 25px;
+  }
+  
+  .logo-slide-section {
+    padding: 30px 0;
+    margin: 0;
+  }
+  
+  .logo-slide-title {
+    margin-bottom: 25px;
+    padding: 0 15px;
+  }
+  
+  .services-container .logoloop {
+    padding: 20px 0;
+    margin: 0 -15px;
+    width: calc(100% + 30px);
+  }
+}
+
+@media (max-width: 480px) {
+  .services-container {
+    padding: 40px 10px;
+    background-size: 16px 16px;
+  }
+  
+  .services-header {
+    margin-bottom: 30px;
+  }
+  
+  .services-grid {
+    gap: 20px;
+    padding: 0 10px;
+    margin-bottom: 20px;
+  }
+  
+  .service-card {
+    padding: 30px 20px;
+  }
+  
+  .service-icon {
+    margin-bottom: 20px;
+  }
+  
+  .service-title {
+    margin-bottom: 12px;
+  }
+  
+  .logo-slide-section {
+    padding: 25px 0;
+    margin: 0;
+  }
+  
+  .logo-slide-title {
+    margin-bottom: 20px;
+    font-size: 1rem;
+    padding: 0 10px;
+  }
+  
+  .services-container .logoloop {
+    padding: 15px 0;
+    margin: 0 -10px;
+    width: calc(100% + 20px);
+  }
+}
+
+/* ReviewsPage Styles */
+.reviews-container {
+  background-color: #000000;
+  min-height: auto;
+  width: 100%;
+  padding: 60px 20px;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.reviews-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.reviews-title {
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 12px 0;
+  letter-spacing: 2px;
+}
+
+.reviews-subtitle {
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.8);
+  margin: 0;
+  letter-spacing: 1px;
+}
+
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 25px;
+  max-width: 1200px;
+  margin: 0 auto 20px auto;
+  padding: 0 20px;
+}
+
+.review-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 30px 25px;
+  border-radius: 16px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.review-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, #8b5cf6, #ec4899);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.review-card:hover {
+  transform: translateY(-10px);
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.review-card:hover::before {
+  transform: scaleX(1);
+}
+
+.review-text {
+  font-size: clamp(0.9rem, 1.5vw, 1rem);
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.6;
+  margin: 0 0 20px 0;
+  font-style: italic;
+}
+
+.review-footer {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 15px;
+}
+
+.review-avatar {
+  flex-shrink: 0;
+}
+
+.review-avatar img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid rgba(139, 92, 246, 0.5);
+}
+
+.review-info {
+  flex: 1;
+}
+
+.review-name {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0 0 4px 0;
+}
+
+.review-role {
+  font-size: 0.85rem;
+  color: rgba(139, 92, 246, 0.9);
+  margin: 0 0 2px 0;
+}
+
+.review-company {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.6);
+  margin: 0;
+}
+
+.review-rating {
+  display: flex;
+  gap: 4px;
+}
+
+.star {
+  color: #fbbf24;
+  font-size: 1rem;
+}
+
+/* Reviews Carousel for Mobile */
+.reviews-carousel {
+  display: none;
+}
+
+.reviews-carousel-track {
+  display: flex;
+  gap: 20px;
+  animation: scroll-reviews 10s linear infinite;
+  will-change: transform;
+}
+
+.reviews-carousel-track:hover {
+  animation-play-state: paused;
+}
+
+.reviews-carousel .review-card {
+  flex: 0 0 280px;
+  min-width: 280px;
+}
+
+@keyframes scroll-reviews {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Responsive Reviews */
+@media (max-width: 768px) {
+  .reviews-container {
+    padding: 50px 0 50px 0;
+    min-height: auto;
+  }
+  
+  .reviews-header {
+    margin-bottom: 30px;
+    padding: 0 15px;
+  }
+  
+  .reviews-grid {
+    display: none;
+  }
+  
+  .reviews-carousel {
+    display: block;
+    overflow: hidden;
+    width: 100%;
+    position: relative;
+    padding: 10px 0;
+  }
+  
+  .reviews-carousel::before,
+  .reviews-carousel::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 40px;
+    z-index: 2;
+    pointer-events: none;
+  }
+  
+  .reviews-carousel::before {
+    left: 0;
+    background: linear-gradient(to right, #000000, transparent);
+  }
+  
+  .reviews-carousel::after {
+    right: 0;
+    background: linear-gradient(to left, #000000, transparent);
+  }
+  
+  .review-card {
+    padding: 25px 20px;
+  }
+  
+  .review-avatar img {
+    width: 45px;
+    height: 45px;
+  }
+}
+
+@media (max-width: 480px) {
+  .reviews-container {
+    padding: 40px 0 40px 0;
+    min-height: auto;
+  }
+  
+  .reviews-header {
+    margin-bottom: 25px;
+    padding: 0 10px;
+  }
+  
+  .reviews-carousel {
+    padding: 8px 0;
+  }
+  
+  .reviews-carousel .review-card {
+    flex: 0 0 260px;
+    min-width: 260px;
+    padding: 20px 18px;
+  }
+  
+  .review-text {
+    margin-bottom: 15px;
+    font-size: 0.85rem;
+  }
+  
+  .review-footer {
+    gap: 10px;
+    margin-bottom: 12px;
+  }
+  
+  .review-avatar img {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .review-name {
+    font-size: 0.9rem;
+  }
+  
+  .review-role {
+    font-size: 0.75rem;
+  }
+  
+  .review-company {
+    font-size: 0.7rem;
+  }
+  
+  .star {
+    font-size: 0.9rem;
   }
 }
 

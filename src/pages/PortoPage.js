@@ -66,6 +66,22 @@ function PortoPage() {
         </div>
       </div>
       
+      {/* Video Showreel */}
+      <div className="showreel-container">
+        <video 
+          className="showreel-video"
+          autoPlay 
+          loop 
+          muted 
+          playsInline
+        >
+          <source 
+            src="https://cdn.sanity.io/files/2hv88549/production/0d33834548eb1bbe7aae74f2e749b7d2b9d6d45d.mp4" 
+            type="video/mp4" 
+          />
+          Your browser does not support the video tag.
+        </video>
+      </div>
       
     </section>
   );
