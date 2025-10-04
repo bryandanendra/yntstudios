@@ -66,31 +66,7 @@ function PortoPage() {
         </div>
       </div>
       
-      <div className="porto-grid">
-        {portfolioItems.map((item) => (
-          <div key={item.id} className="porto-card-wrapper">
-            <TiltedCard
-              imageSrc={item.image}
-              altText={item.title}
-              captionText={item.caption}
-              containerHeight={isMobile ? "300px" : "400px"}
-              containerWidth="100%"
-              imageHeight={isMobile ? "250px" : "350px"}
-              imageWidth={isMobile ? "200px" : "280px"}
-              scaleOnHover={1.2}
-              rotateAmplitude={30}
-              showMobileWarning={false}
-              showTooltip={false}
-              overlayContent={
-                <div className="porto-card-overlay-title">
-                  {item.title}
-                </div>
-              }
-              displayOverlayContent={true}
-            />
-          </div>
-        ))}
-      </div>
+      
     </section>
   );
 }
