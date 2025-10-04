@@ -8,19 +8,19 @@ function ServicesPage() {
       id: 1,
       title: "3D Animation",
       description: "Creating stunning 3D animations that bring your ideas to life with precision and creativity.",
-      icon: "🎬"
+      icon: "/images/3D.png"
     },
     {
       id: 2,
       title: "VFX",
       description: "Professional visual effects that enhance your content and create immersive experiences.",
-      icon: "✨"
+      icon: "/images/vfx.png"
     },
     {
       id: 3,
       title: "Video Editing",
       description: "Expert video editing services to transform raw footage into compelling visual stories.",
-      icon: "🎥"
+      icon: "/images/video.png"
     }
   ];
 
@@ -85,7 +85,9 @@ function ServicesPage() {
       <div className="services-grid">
         {services.map((service) => (
           <div key={service.id} className="service-card">
-            <div className="service-icon">{service.icon}</div>
+            <div className="service-icon">
+              <img src={service.icon} alt={service.title} />
+            </div>
             <h3 className="service-title">{service.title}</h3>
             <p className="service-description">{service.description}</p>
           </div>
@@ -99,7 +101,7 @@ function ServicesPage() {
           logos={softwareLogos}
           speed={50}
           direction="left"
-          logoHeight={40}
+          logoHeight={60}
           gap={60}
           pauseOnHover={true}
           fadeOut={true}

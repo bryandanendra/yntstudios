@@ -55,12 +55,12 @@ function PortoPage() {
       
       <div className="porto-content">
         <div className="porto-left-section">
-          <div className="porto-subtitle">CREATIVE FRONT-END DEVELOPER</div>
+          <div className="porto-subtitle">YNT STUDIO</div>
         </div>
         
         <div className="porto-right-section">
           <div className="porto-status">
-            <span className="status-text">AVAILABLE</span>
+            <span className="status-text">RECENT</span>
             <span className="status-dot"></span>
           </div>
         </div>

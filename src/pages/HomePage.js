@@ -1,5 +1,5 @@
 import React from 'react';
-import LightRays from '../components/LightRays/LightRays';
+import Prism from '../components/Prism/Prism';
 import '../App.css';
 
 function HomePage() {
@@ -25,20 +25,21 @@ function HomePage() {
 
   return (
     <section className="home-container">
-      <LightRays 
-        raysOrigin="top-center"
-        raysColor="#ffffff"
-        raysSpeed={1}
-        lightSpread={1}
-        rayLength={3.0}
-        pulsating={false}
-        fadeDistance={1}
-        saturation={1}
-        followMouse={true}
-        mouseInfluence={0.2}
-        noiseAmount={0.0}
-        distortion={0.0}
-        className="background-rays"
+      <Prism 
+        height={1}
+        baseWidth={5.5}
+        animationType="hover"
+        glow={1}
+        noise={0}
+        transparent={true}
+        scale={2}
+        hueShift={0}
+        colorFrequency={1}
+        hoverStrength={2}
+        inertia={0.05}
+        bloom={1}
+        suspendWhenOffscreen={false}
+        timeScale={0.5}
       />
       <div className="content">
         <h1 className="title">YNT STUDIO</h1>
