@@ -1,13 +1,22 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import '../App.css';
 import LogoLoop from '../components/LogoLoop/LogoLoop';
 
 function ServicesPage() {
+  const navigate = useNavigate();
+
+  const handleServiceClick = (serviceTitle) => {
+    if (serviceTitle === "3D Animation") {
+      navigate('/pricing/3d-animation');
+    }
+  };
+
   const services = [
     {
       id: 1,
       title: "3D Animation",
-      description: "Creating stunning 3D animations that bring your ideas to life with precision and creativity.",
+      description: "Creating stunning 3D animations that bring your ideas to life.",
       icon: "/images/3D.png"
     },
     {
@@ -84,12 +93,20 @@ function ServicesPage() {
 
       <div className="services-grid">
         {services.map((service) => (
-          <div key={service.id} className="service-card">
+          <div 
+            key={service.id} 
+            className={`service-card ${service.title === "3D Animation" ? "service-card-clickable" : ""}`}
+            onClick={() => handleServiceClick(service.title)}
+            style={service.title === "3D Animation" ? { cursor: 'pointer' } : {}}
+          >
             <div className="service-icon">
               <img src={service.icon} alt={service.title} />
             </div>
             <h3 className="service-title">{service.title}</h3>
             <p className="service-description">{service.description}</p>
+            {service.title === "3D Animation" && (
+              <div className="service-badge">View Pricing →</div>
+            )}
           </div>
         ))}
       </div>

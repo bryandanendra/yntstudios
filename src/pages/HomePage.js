@@ -4,6 +4,7 @@ import '../App.css';
 
 function HomePage() {
   const [shouldRenderPrism, setShouldRenderPrism] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   
   // Delay Prism rendering to improve initial load
   useEffect(() => {
@@ -11,6 +12,17 @@ function HomePage() {
       setShouldRenderPrism(true);
     }, 100);
     return () => clearTimeout(timer);
+  }, []);
+
+  // Detect mobile device
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
   }, []);
   const scrollToContact = () => {
     const contactSection = document.getElementById('contact');
@@ -36,13 +48,13 @@ function HomePage() {
     <section className="home-container">
       {shouldRenderPrism && (
         <Prism 
-          height={1}
-          baseWidth={5.5}
-          animationType="hover"
+          height={isMobile ? 1.5 : 3}
+          baseWidth={isMobile ? 3 : 5.5}
+          animationType="3drotate"
           glow={1}
           noise={0}
           transparent={true}
-          scale={2}
+          scale={isMobile ? 2 : 2}
           hueShift={0}
           colorFrequency={1}
           hoverStrength={2}

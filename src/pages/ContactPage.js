@@ -8,7 +8,7 @@ function ContactPage() {
         <div className="contact-left-section">
           <h1 className="contact-heading">Get in touch</h1>
           <div className="contact-email">
-            <a href="mailto:yntstudio@gmail.com" className="email-link">
+            <a href="mailto:yntstudiofx@gmail.com" className="email-link">
               yntstudio@gmail.com
             </a>
           </div>
@@ -19,7 +19,7 @@ function ContactPage() {
                 <div className="instagram-circle"></div>
               </div>
               <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
-                @ynt.studio
+                @yntstudio.fx
               </a>
             </div>
           </div>

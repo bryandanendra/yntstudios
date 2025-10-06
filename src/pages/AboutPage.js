@@ -25,15 +25,15 @@ function AboutPage() {
       
       if (viewportWidth <= 480) {
         // Small mobile devices
-        minZoom = 0.6;  // Zoom lebih jauh agar tidak keluar frame
-        maxZoom = 1.2;  // Bisa zoom out lebih jauh
+        minZoom = 1.0;   // Zoom lebih jauh agar model tidak terlalu besar
+        maxZoom = 2.0;   // Bisa zoom out lebih jauh
         autoSpeed = 0.4; // Lebih cepat untuk mobile
         offsetX = 0.2;   // Geser ke kanan (lebih sedikit)
         offsetY = 0;     // Tengah vertikal
       } else if (viewportWidth <= 768) {
         // Mobile devices
-        minZoom = 0.55;  // Zoom lebih jauh agar tidak keluar frame
-        maxZoom = 1.0;   // Sedang jauh
+        minZoom = 0.9;   // Zoom lebih jauh agar model tidak terlalu besar
+        maxZoom = 1.8;   // Bisa zoom out lebih jauh
         autoSpeed = 0.4; // Sedang cepat
         offsetX = 0.3;   // Geser ke kanan
         offsetY = 0;     // Tengah vertikal

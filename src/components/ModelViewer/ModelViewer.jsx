@@ -30,8 +30,8 @@ const isTouch =
   typeof window !== "undefined" &&
   ("ontouchstart" in window || navigator.maxTouchPoints > 0);
 const deg2rad = (d) => (d * Math.PI) / 180;
-const DECIDE = 8;
-const ROTATE_SPEED = 0.005;
+const DECIDE = 3;
+const ROTATE_SPEED = 0.008;
 const INERTIA = 0.925;
 const PARALLAX_MAG = 0.05;
 const PARALLAX_EASE = 0.12;
@@ -46,6 +46,7 @@ const Loader = ({ placeholderSrc }) => {
       {placeholderSrc ? (
         <img
           src={placeholderSrc}
+          alt="Loading model"
           width={128}
           height={128}
           style={
@@ -228,6 +229,7 @@ const ModelInner = ({
         mode = "decide";
         sx = lx = e.clientX;
         sy = ly = e.clientY;
+        e.preventDefault();
       } else if (pts.size === 2 && enableManualZoom) {
         mode = "pinch";
         const [p1, p2] = [...pts.values()];
@@ -248,9 +250,10 @@ const ModelInner = ({
         const dx = e.clientX - sx;
         const dy = e.clientY - sy;
         if (Math.abs(dx) > DECIDE || Math.abs(dy) > DECIDE) {
-          if (enableManualRotation && Math.abs(dx) > Math.abs(dy)) {
+          if (enableManualRotation) {
             mode = "rotate";
             el.setPointerCapture(e.pointerId);
+            e.preventDefault();
           } else {
             mode = "idle";
             pts.clear();

@@ -1,4 +1,5 @@
 import React, { lazy, Suspense } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
 
 // Lazy load all pages for better performance
@@ -6,8 +7,21 @@ const HomePage = lazy(() => import('./pages/HomePage'));
 const AboutPage = lazy(() => import('./pages/AboutPage'));
 const PortoPage = lazy(() => import('./pages/PortoPage'));
 const ServicesPage = lazy(() => import('./pages/ServicesPage'));
+const PricingPage = lazy(() => import('./pages/PricingPage'));
 const ReviewsPage = lazy(() => import('./pages/ReviewsPage'));
 const ContactPage = lazy(() => import('./pages/ContactPage'));
+
+// Main landing page with all sections
+const LandingPage = () => (
+  <>
+    <HomePage />
+    <AboutPage />
+    <PortoPage />
+    <ServicesPage />
+    <ReviewsPage />
+    <ContactPage />
+  </>
+);
 
 // Loading component
 const PageLoader = () => (
@@ -26,26 +40,16 @@ const PageLoader = () => (
 
 function App() {
   return (
-    <div className="App">
-      <Suspense fallback={<PageLoader />}>
-        <HomePage />
-      </Suspense>
-      <Suspense fallback={<PageLoader />}>
-        <AboutPage />
-      </Suspense>
-      <Suspense fallback={<PageLoader />}>
-        <PortoPage />
-      </Suspense>
-      <Suspense fallback={<PageLoader />}>
-        <ServicesPage />
-      </Suspense>
-      <Suspense fallback={<PageLoader />}>
-        <ReviewsPage />
-      </Suspense>
-      <Suspense fallback={<PageLoader />}>
-        <ContactPage />
-      </Suspense>
-    </div>
+    <Router>
+      <div className="App">
+        <Suspense fallback={<PageLoader />}>
+          <Routes>
+            <Route path="/" element={<LandingPage />} />
+            <Route path="/pricing/3d-animation" element={<PricingPage />} />
+          </Routes>
+        </Suspense>
+      </div>
+    </Router>
   );
 }
 
