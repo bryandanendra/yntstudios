@@ -402,6 +402,9 @@ const ModelViewer = ({
   const sceneRef = useRef(null);
   const cameraRef = useRef(null);
 
+  // Optimize for mobile devices
+  const isMobile = typeof window !== 'undefined' && window.innerWidth <= 768;
+  
   const initYaw = deg2rad(defaultRotationX);
   const initPitch = deg2rad(defaultRotationY);
   const camZ = Math.min(
@@ -463,20 +466,28 @@ const ModelViewer = ({
       )}
 
       <Canvas
-        shadows
+        shadows={!isMobile}
         frameloop="demand"
-        gl={{ preserveDrawingBuffer: true }}
+        gl={{ 
+          preserveDrawingBuffer: true,
+          antialias: !isMobile,
+          powerPreference: isMobile ? 'low-power' : 'high-performance'
+        }}
         onCreated={({ gl, scene, camera }) => {
           rendererRef.current = gl;
           sceneRef.current = scene;
           cameraRef.current = camera;
           gl.toneMapping = THREE.ACESFilmicToneMapping;
           gl.outputColorSpace = THREE.SRGBColorSpace;
+          // Reduce pixel ratio on mobile
+          if (isMobile) {
+            gl.setPixelRatio(Math.min(1.5, window.devicePixelRatio));
+          }
         }}
         camera={{ fov: 50, position: [0, 0, camZ], near: 0.01, far: 100 }}
         style={{ touchAction: "pan-y pinch-zoom" }}
       >
-        {environmentPreset !== "none" && (
+        {environmentPreset !== "none" && !isMobile && (
           <Environment preset={environmentPreset} background={false} />
         )}
 
@@ -492,13 +503,15 @@ const ModelViewer = ({
         />
         <directionalLight position={[0, 4, -5]} intensity={rimLightIntensity} />
 
-        <ContactShadows
-          ref={contactRef}
-          position={[0, -0.5, 0]}
-          opacity={0.35}
-          scale={10}
-          blur={2}
-        />
+        {!isMobile && (
+          <ContactShadows
+            ref={contactRef}
+            position={[0, -0.5, 0]}
+            opacity={0.35}
+            scale={10}
+            blur={2}
+          />
+        )}
 
         <Suspense fallback={<Loader placeholderSrc={placeholderSrc} />}>
           <ModelInner

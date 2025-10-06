@@ -1,8 +1,17 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Prism from '../components/Prism/Prism';
 import '../App.css';
 
 function HomePage() {
+  const [shouldRenderPrism, setShouldRenderPrism] = useState(false);
+  
+  // Delay Prism rendering to improve initial load
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShouldRenderPrism(true);
+    }, 100);
+    return () => clearTimeout(timer);
+  }, []);
   const scrollToContact = () => {
     const contactSection = document.getElementById('contact');
     if (contactSection) {
@@ -25,22 +34,24 @@ function HomePage() {
 
   return (
     <section className="home-container">
-      <Prism 
-        height={1}
-        baseWidth={5.5}
-        animationType="hover"
-        glow={1}
-        noise={0}
-        transparent={true}
-        scale={2}
-        hueShift={0}
-        colorFrequency={1}
-        hoverStrength={2}
-        inertia={0.05}
-        bloom={1}
-        suspendWhenOffscreen={false}
-        timeScale={0.5}
-      />
+      {shouldRenderPrism && (
+        <Prism 
+          height={1}
+          baseWidth={5.5}
+          animationType="hover"
+          glow={1}
+          noise={0}
+          transparent={true}
+          scale={2}
+          hueShift={0}
+          colorFrequency={1}
+          hoverStrength={2}
+          inertia={0.05}
+          bloom={1}
+          suspendWhenOffscreen={true}
+          timeScale={0.5}
+        />
+      )}
       <div className="content">
         <h1 className="title">YNT STUDIO</h1>
         <div className="button-container">

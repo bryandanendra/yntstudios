@@ -1,6 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, lazy, Suspense } from 'react';
 import '../App.css';
-import ModelViewer from '../components/ModelViewer/ModelViewer';
+
+// Lazy load ModelViewer for better performance
+const ModelViewer = lazy(() => import('../components/ModelViewer/ModelViewer'));
 
 
 function AboutPage() {
@@ -69,27 +71,41 @@ function AboutPage() {
   return (
     <section className="about-container">
       <div className="canvas-wrapper">
-        <ModelViewer
-          url="https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Models/main/2.0/ToyCar/glTF-Binary/ToyCar.glb"
-          width={canvasSize.width}
-          height={canvasSize.height}
-          modelXOffset={modelOffset.x}  // Geser ke kanan (nilai positif)
-          modelYOffset={modelOffset.y}    // Geser ke atas/bawah (0 = tengah)
-          defaultRotationX={-30}
-          defaultRotationY={45}
-          autoRotate={true}
-          autoRotateSpeed={rotationSpeed}
-          enableMouseParallax={true}
-          enableHoverRotation={true}
-          enableManualZoom={true}
-          minZoomDistance={zoomSettings.min}  // Zoom in maximum (semakin kecil = semakin dekat)
-          maxZoomDistance={zoomSettings.max}    // Zoom out maximum (semakin besar = semakin jauh)
-          ambientIntensity={0.4}
-          keyLightIntensity={1.2}
-          fillLightIntensity={0.6}
-          rimLightIntensity={1.0}
-          environmentPreset="studio"
-        />
+        <Suspense fallback={
+          <div style={{
+            width: canvasSize.width,
+            height: canvasSize.height,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            backgroundColor: '#000',
+            color: '#fff'
+          }}>
+            Loading 3D Model...
+          </div>
+        }>
+          <ModelViewer
+            url="https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Models/main/2.0/ToyCar/glTF-Binary/ToyCar.glb"
+            width={canvasSize.width}
+            height={canvasSize.height}
+            modelXOffset={modelOffset.x}  // Geser ke kanan (nilai positif)
+            modelYOffset={modelOffset.y}    // Geser ke atas/bawah (0 = tengah)
+            defaultRotationX={-30}
+            defaultRotationY={45}
+            autoRotate={true}
+            autoRotateSpeed={rotationSpeed}
+            enableMouseParallax={true}
+            enableHoverRotation={true}
+            enableManualZoom={true}
+            minZoomDistance={zoomSettings.min}  // Zoom in maximum (semakin kecil = semakin dekat)
+            maxZoomDistance={zoomSettings.max}    // Zoom out maximum (semakin besar = semakin jauh)
+            ambientIntensity={0.4}
+            keyLightIntensity={1.2}
+            fillLightIntensity={0.6}
+            rimLightIntensity={1.0}
+            environmentPreset="studio"
+          />
+        </Suspense>
         
         {/* Text Overlay */}
         <div className="text-overlay">
