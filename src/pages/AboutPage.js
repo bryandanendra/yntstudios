@@ -85,7 +85,8 @@ function AboutPage() {
           </div>
         }>
           <ModelViewer
-            url="https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Models/main/2.0/ToyCar/glTF-Binary/ToyCar.glb"
+            //url="https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Models/main/2.0/ToyCar/glTF-Binary/ToyCar.glb"
+            url="https://raw.githubusercontent.com/bryandanendra/glb/main/piyo.glb"
             width={canvasSize.width}
             height={canvasSize.height}
             modelXOffset={modelOffset.x}  // Geser ke kanan (nilai positif)
