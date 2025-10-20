@@ -69,7 +69,7 @@ function AboutPage() {
   }, []);
 
   return (
-    <section className="about-container">
+    <section id="about" className="about-container">
       <div className="canvas-wrapper">
         <Suspense fallback={
           <div style={{

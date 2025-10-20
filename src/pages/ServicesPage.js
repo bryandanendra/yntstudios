@@ -87,7 +87,7 @@ function ServicesPage() {
   ];
 
   return (
-    <section className="services-container">
+    <section id="services" className="services-container">
       <div className="services-header">
         <h1 className="services-title">OUR SERVICES</h1>
         <p className="services-subtitle">What We Do Best</p>

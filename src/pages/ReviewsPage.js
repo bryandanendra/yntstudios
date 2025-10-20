@@ -6,7 +6,7 @@ function ReviewsPage() {
     {
       id: 1,
       name: "Sarah Johnson",
-      role: "Marketing Director",
+      role: "Client",
       company: "TechCorp Inc.",
       avatar: "https://i.pravatar.cc/150?img=1",
       quote: "YNT Studio transformed our brand with stunning 3D animations. Their attention to detail and creativity exceeded our expectations. Highly recommended!",
@@ -15,7 +15,7 @@ function ReviewsPage() {
     {
       id: 2,
       name: "Michael Chen",
-      role: "Creative Director",
+      role: "Client",
       company: "Digital Agency",
       avatar: "https://i.pravatar.cc/150?img=13",
       quote: "Working with YNT Studio was a game-changer. Their VFX work brought our vision to life in ways we never imagined possible.",
@@ -24,7 +24,7 @@ function ReviewsPage() {
     {
       id: 3,
       name: "Emily Rodriguez",
-      role: "Content Producer",
+      role: "Client",
       company: "Media House",
       avatar: "https://i.pravatar.cc/150?img=5",
       quote: "Professional, creative, and always on time. YNT Studio's video editing skills are top-notch. They understand exactly what we need.",
@@ -33,7 +33,7 @@ function ReviewsPage() {
     {
       id: 4,
       name: "David Thompson",
-      role: "CEO",
+      role: "Client",
       company: "StartUp Ventures",
       avatar: "https://i.pravatar.cc/150?img=12",
       quote: "The quality of work from YNT Studio is exceptional. They delivered beyond what we asked for and the results speak for themselves.",
@@ -42,7 +42,7 @@ function ReviewsPage() {
     {
       id: 5,
       name: "Lisa Anderson",
-      role: "Brand Manager",
+      role: "Client",
       company: "Fashion Brand",
       avatar: "https://i.pravatar.cc/150?img=9",
       quote: "Incredible talent and professionalism. YNT Studio created visuals that perfectly captured our brand essence. Absolutely brilliant!",
@@ -51,7 +51,7 @@ function ReviewsPage() {
     {
       id: 6,
       name: "James Wilson",
-      role: "Film Producer",
+      role: "Client",
       company: "Indie Films",
       avatar: "https://i.pravatar.cc/150?img=14",
       quote: "YNT Studio's expertise in VFX and animation is unmatched. They brought cinematic quality to our project within budget and timeline.",

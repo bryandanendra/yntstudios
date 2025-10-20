@@ -29,7 +29,7 @@ function PortoPage() {
   }, [shouldLoadVideo]);
 
   return (
-    <section className="porto-container">
+    <section id="portfolio" className="porto-container">
       <div className="porto-header">
         <div className="porto-title-left">PORTO</div>
         <div className="porto-title-right">PAGE</div>
