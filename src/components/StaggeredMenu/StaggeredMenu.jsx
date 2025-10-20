@@ -359,7 +359,7 @@ export const StaggeredMenu = ({
         "staggered-menu-wrapper" +
         (isFixed ? " fixed-wrapper" : "")
       }
-      style={accentColor ? { ["--sm-accent"]: accentColor } : undefined}
+      style={accentColor ? { "--sm-accent": accentColor } : undefined}
       data-position={position}
       data-open={open || undefined}
     >
@@ -421,7 +421,6 @@ export const StaggeredMenu = ({
         <div className="sm-panel-inner">
           <ul
             className="sm-panel-list"
-            role="list"
             data-numbering={displayItemNumbering || undefined}
           >
             {items && items.length ? (
@@ -454,7 +453,7 @@ export const StaggeredMenu = ({
           {displaySocials && socialItems && socialItems.length > 0 && (
             <div className="sm-socials" aria-label="Social links">
               <h3 className="sm-socials-title">Socials</h3>
-              <ul className="sm-socials-list" role="list">
+              <ul className="sm-socials-list">
                 {socialItems.map((s, i) => (
                   <li key={s.label + i} className="sm-socials-item">
                     <a

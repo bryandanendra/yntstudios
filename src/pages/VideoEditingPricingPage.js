@@ -252,6 +252,44 @@ function VideoEditingPricingPage() {
           )}
         </div>
 
+        {/* Additional VFX Pricing Section */}
+        <div className="vfx-pricing-section">
+          <h2 className="vfx-pricing-title">Additional VFX Services</h2>
+          <p className="vfx-pricing-subtitle">Professional visual effects to enhance your video content</p>
+          
+          <div className="vfx-pricing-table">
+            <div className="vfx-table-header">
+              <div className="vfx-header-cell">VFX Services</div>
+              <div className="vfx-header-cell">Price Per Unit (IDR)</div>
+              <div className="vfx-header-cell">Notes</div>
+            </div>
+            
+            <div className="vfx-table-body">
+              <div className="vfx-table-row">
+                <div className="vfx-cell">Rotoscoping / Keying</div>
+                <div className="vfx-cell">{formatPrice(500000)} – {formatPrice(1500000)}</div>
+                <div className="vfx-cell">Per shot</div>
+              </div>
+              
+              <div className="vfx-table-row">
+                <div className="vfx-cell">Compositing (2D/3D)</div>
+                <div className="vfx-cell">{formatPrice(2000000)} – {formatPrice(5000000)}</div>
+                <div className="vfx-cell">Per shot</div>
+              </div>
+              
+              <div className="vfx-table-row">
+                <div className="vfx-cell">Motion Graphics / Title Animation</div>
+                <div className="vfx-cell">{formatPrice(1000000)} – {formatPrice(3000000)}</div>
+                <div className="vfx-cell">Per menit</div>
+              </div>
+            </div>
+          </div>
+          
+          {/* <div className="vfx-note">
+            <p>💡 <strong>Note:</strong> Prices may vary depending on project complexity. Contact us for a free consultation and special offers!</p>
+          </div> */}
+        </div>
+
         {/* Showcase Video Section */}
         <div className="pricing-showcase">
           <h2 className="showcase-title">See our work in action</h2>

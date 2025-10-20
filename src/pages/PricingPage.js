@@ -11,6 +11,7 @@ function PricingPage() {
   const isDragging = useRef(false);
 
   const [openFaq, setOpenFaq] = useState(null);
+  const [openAnimCard, setOpenAnimCard] = useState(null);
   const [userCountry, setUserCountry] = useState('ID'); // Default to Indonesia
 
   useEffect(() => {
@@ -173,7 +174,7 @@ function PricingPage() {
 
         {/* Header */}
         <div className="pricing-header">
-          <h1 className="pricing-main-title">3D Animation</h1>
+          <h1 className="pricing-main-title">3D Project</h1>
           <p className="pricing-subtitle">Professional 3D modeling services tailored to your needs</p>
         </div>
 
@@ -241,6 +242,99 @@ function PricingPage() {
               ))}
             </div>
           )}
+        </div>
+
+        {/* 3D Animation Pricing Section */}
+        <div className="animation-pricing-section">
+          <h2 className="animation-pricing-title">3D Animation Pricing</h2>
+          <p className="animation-pricing-subtitle">Professional 3D animation services priced per second</p>
+          
+          <div className="animation-pricing-cards">
+            {/* Basic Animation Card */}
+            <div className="animation-card-accordion">
+              <button
+                className={`animation-card-header ${openAnimCard === 'basic' ? 'active' : ''}`}
+                onClick={() => isMobile && setOpenAnimCard(openAnimCard === 'basic' ? null : 'basic')}
+              >
+                <div className="animation-header-content">
+                  <h3 className="animation-tier">Basic Animation</h3>
+                  <div className="animation-price">
+                    <span className="price-amount">{formatPrice(45000)}</span>
+                    <span className="price-unit">/ second</span>
+                  </div>
+                </div>
+                {isMobile && <span className="animation-icon">{openAnimCard === 'basic' ? '−' : '+'}</span>}
+              </button>
+              <div className={`animation-card-body ${!isMobile || openAnimCard === 'basic' ? 'open' : ''}`}>
+                <p className="animation-description">
+                  Simple animations with basic movements, suitable for product showcases and simple character animations.
+                </p>
+                <ul className="animation-features">
+                  <li>✓ Simple object movements</li>
+                  <li>✓ Basic camera work</li>
+                  <li>✓ Standard lighting</li>
+                  <li>✓ Simple materials</li>
+                </ul>
+                <div className="animation-video-preview">
+                  <video 
+                    className="preview-video"
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                  >
+                    <source src="https://res.cloudinary.com/ds4ota3jr/video/upload/v1759743031/Compres_negeri_awan_e1kjv3.mp4" type="video/mp4" />
+                  </video>
+                  <p className="video-label">Example: Basic Animation (45k/sec)</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Premium Animation Card */}
+            <div className="animation-card-accordion animation-card-premium">
+              <button
+                className={`animation-card-header ${openAnimCard === 'premium' ? 'active' : ''}`}
+                onClick={() => isMobile && setOpenAnimCard(openAnimCard === 'premium' ? null : 'premium')}
+              >
+                <div className="animation-header-content">
+                  <h3 className="animation-tier">Premium Animation</h3>
+                  <div className="animation-price">
+                    <span className="price-amount">{formatPrice(85000)}</span>
+                    <span className="price-unit">/ second</span>
+                  </div>
+                </div>
+                {isMobile && <span className="animation-icon">{openAnimCard === 'premium' ? '−' : '+'}</span>}
+              </button>
+              <div className={`animation-card-body ${!isMobile || openAnimCard === 'premium' ? 'open' : ''}`}>
+                <p className="animation-description">
+                  Complex animations with advanced techniques, perfect for high-end commercials and detailed character work.
+                </p>
+                <ul className="animation-features">
+                  <li>✓ Complex character rigging</li>
+                  <li>✓ Advanced camera movements</li>
+                  <li>✓ Professional lighting setup</li>
+                  <li>✓ Realistic materials & textures</li>
+                  <li>✓ Particle effects & simulations</li>
+                </ul>
+                <div className="animation-video-preview">
+                  <video 
+                    className="preview-video"
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                  >
+                    <source src="https://res.cloudinary.com/ds4ota3jr/video/upload/v1759745707/VFX_Air_Terjun_compres_katb2z.mp4" type="video/mp4" />
+                  </video>
+                  <p className="video-label">Example: Premium Animation (85k/sec)</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* <div className="animation-note">
+            <p>💡 <strong>Note:</strong> Final pricing depends on project complexity, duration, and specific requirements. Contact us for a detailed quote!</p>
+          </div> */}
         </div>
 
         {/* Showcase Video Section */}

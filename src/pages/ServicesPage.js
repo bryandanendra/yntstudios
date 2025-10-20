@@ -7,29 +7,32 @@ function ServicesPage() {
   const navigate = useNavigate();
 
   const handleServiceClick = (serviceTitle) => {
-    if (serviceTitle === "3D Animation") {
-      navigate('/pricing/3d-animation');
-    } else if (serviceTitle === "Video Editing") {
+    if (serviceTitle === "3D Project") {
+      navigate('/pricing/3d-project');
+    } else if (serviceTitle === "Video Editing & VFX") {
       navigate('/pricing/video-editing');
+    } else if (serviceTitle === "Website Dev") {
+      // Untuk sementara arahkan ke WhatsApp atau bisa dibuat halaman pricing tersendiri
+      window.open('https://wa.me/6285190084149?text=Hi,%20I%27m%20interested%20in%20your%20Website%20Development%20services', '_blank');
     }
   };
 
   const services = [
     {
       id: 1,
-      title: "3D Animation",
+      title: "3D Project",
       description: "Creating stunning 3D animations that bring your ideas to life.",
       icon: "/images/3D.png"
     },
     {
       id: 2,
-      title: "VFX",
-      description: "Professional visual effects that enhance your content and create immersive experiences.",
-      icon: "/images/vfx.png"
+      title: "Website Dev",
+      description: "Professional website development services to create a user-friendly and visually appealing website.",
+      icon: "/images/website.png"
     },
     {
       id: 3,
-      title: "Video Editing",
+      title: "Video Editing & VFX",
       description: "Expert video editing services to transform raw footage into compelling visual stories.",
       icon: "/images/video.png"
     }
@@ -95,7 +98,9 @@ function ServicesPage() {
 
       <div className="services-grid">
         {services.map((service) => {
-          const hasPrice = service.title === "3D Animation" || service.title === "Video Editing";
+          const hasPrice = service.title === "3D Project" || 
+                          service.title === "Video Editing & VFX" || 
+                          service.title === "Website Dev";
           return (
             <div 
               key={service.id} 

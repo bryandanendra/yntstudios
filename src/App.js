@@ -48,7 +48,7 @@ function App() {
         <Suspense fallback={<PageLoader />}>
           <Routes>
             <Route path="/" element={<LandingPage />} />
-            <Route path="/pricing/3d-animation" element={<PricingPage />} />
+            <Route path="/pricing/3d-project" element={<PricingPage />} />
             <Route path="/pricing/video-editing" element={<VideoEditingPricingPage />} />
           </Routes>
         </Suspense>
