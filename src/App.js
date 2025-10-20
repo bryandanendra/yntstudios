@@ -8,6 +8,7 @@ const AboutPage = lazy(() => import('./pages/AboutPage'));
 const PortoPage = lazy(() => import('./pages/PortoPage'));
 const ServicesPage = lazy(() => import('./pages/ServicesPage'));
 const PricingPage = lazy(() => import('./pages/PricingPage'));
+const VideoEditingPricingPage = lazy(() => import('./pages/VideoEditingPricingPage'));
 const ReviewsPage = lazy(() => import('./pages/ReviewsPage'));
 const ContactPage = lazy(() => import('./pages/ContactPage'));
 
@@ -46,6 +47,7 @@ function App() {
           <Routes>
             <Route path="/" element={<LandingPage />} />
             <Route path="/pricing/3d-animation" element={<PricingPage />} />
+            <Route path="/pricing/video-editing" element={<VideoEditingPricingPage />} />
           </Routes>
         </Suspense>
       </div>

@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../App.css';
 
-function PricingPage() {
+function VideoEditingPricingPage() {
   const navigate = useNavigate();
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
@@ -53,45 +53,48 @@ function PricingPage() {
   const pricingTiers = [
     {
       id: 1,
-      name: "Low Poly",
-      priceMin: 80000,
-      priceMax: 250000,
-      description: "Minimal polygon model, ideal for mobile games, AR/VR, or real-time applications. Features minimal detail and is very lightweight in terms of performance.",
+      name: "Short Form",
+      duration: "1-3 Minutes",
+      priceMin: 150000,
+      priceMax: 350000,
+      description: "Perfect for social media content, short promotional videos, or quick highlights. Includes basic editing, transitions, and color correction.",
       features: [
-        "✓ Minimal polygon count",
-        "✓ Optimized for mobile & AR/VR",
-        "✓ Fast rendering performance",
-        "✓ Basic texturing"
+        "✓ 1-3 minutes duration",
+        "✓ Basic color correction",
+        "✓ Smooth transitions",
+        "✓ Background music & sound effects"
       ],
       featured: false,
       ctaText: "Get Started"
     },
     {
       id: 2,
-      name: "Medium Poly",
-      priceMin: 250000,
-      priceMax: 500000,
-      description: "Medium detail model, suitable for PC games, animations, or product visualization. Features more polygons with better textures and details, while maintaining a balance between performance and quality.",
+      name: "Medium Form",
+      duration: "4-7 Minutes",
+      priceMin: 350000,
+      priceMax: 650000,
+      description: "Ideal for YouTube videos, corporate presentations, or detailed product showcases. Includes advanced editing, motion graphics, and professional color grading.",
       features: [
-        "✓ Balanced polygon count",
-        "✓ Perfect for PC games & animations",
-        "✓ Enhanced texturing & details",
-        "✓ Product visualization ready"
+        "✓ 4-7 minutes duration",
+        "✓ Advanced color grading",
+        "✓ Motion graphics & animations",
+        "✓ Professional audio mixing"
       ],
       featured: true,
       ctaText: "Get Started"
     },
     {
       id: 3,
-      name: "High Poly",
+      name: "Long Form",
+      duration: "8+ Minutes",
       priceMin: "Custom",
       priceMax: null,
-      description: "High detail model with maximum polygons, perfect for cinematic rendering, films, or premium product visualization. Best quality with extremely smooth and realistic details.",
+      description: "For documentaries, long-form content, or complex projects requiring extensive editing. Fully customized workflow with premium effects and detailed post-production.",
       features: [
-        "✓ Maximum polygon count",
-        "✓ Cinematic quality rendering",
-        "✓ Ultra-detailed texturing",
-        "✓ Film & premium visualization"
+        "✓ 8+ minutes duration",
+        "✓ Cinematic color grading",
+        "✓ Advanced VFX & compositing",
+        "✓ Full post-production suite"
       ],
       featured: false,
       ctaText: "Contact Us"
@@ -101,23 +104,28 @@ function PricingPage() {
   const faqs = [
     {
       id: 1,
-      question: "How long does it take to complete?",
-      answer: "Completion time varies depending on model complexity. Low Poly: 3-5 days, Medium Poly: 5-10 days, High Poly: 10-20 days. For urgent projects, we provide fast track service with additional cost."
+      question: "What video formats do you accept?",
+      answer: "We accept all major video formats including MP4, MOV, and raw footage from cameras. If you have a specific format, feel free to contact us and we'll accommodate it."
     },
     {
       id: 2,
-      question: "Are revisions included?",
-      answer: "Yes, we provide 2-3 free revision rounds to ensure the result meets your expectations. Additional revisions may incur charges as agreed."
+      question: "How long does the editing process take?",
+      answer: "Short Form (1-3 min): 3-5 days, Medium Form (4-7 min): 5-8 days, Long Form (8+ min): 10-15 days. Rush delivery available with additional cost."
     },
     {
       id: 3,
-      question: "What file formats are provided?",
-      answer: "We provide various formats such as GLB, FBX, OBJ, and other formats according to your project needs. Source files can also be provided with additional cost."
+      question: "Do you provide revisions?",
+      answer: "Yes! We include 2-3 revision rounds in all packages to ensure the final video meets your expectations. Additional revisions can be arranged if needed."
     },
     {
       id: 4,
-      question: "What are the payment methods?",
-      answer: "Payment can be made via bank transfer or e-wallet. For large projects, we accept a 50% down payment upfront and full payment after project completion."
+      question: "Can you add subtitles and captions?",
+      answer: "Absolutely! We can add subtitles, captions, and text overlays in multiple languages. This service is included in all packages."
+    },
+    {
+      id: 5,
+      question: "What about music and sound effects?",
+      answer: "We provide royalty-free background music and sound effects. If you have specific tracks you'd like to use, you can provide them, or we can source licensed music for an additional fee."
     }
   ];
 
@@ -173,8 +181,8 @@ function PricingPage() {
 
         {/* Header */}
         <div className="pricing-header">
-          <h1 className="pricing-main-title">3D Animation</h1>
-          <p className="pricing-subtitle">Professional 3D modeling services tailored to your needs</p>
+          <h1 className="pricing-main-title">Video Editing</h1>
+          <p className="pricing-subtitle">Professional video editing services for all your content needs</p>
         </div>
 
         {/* Pricing Cards Carousel */}
@@ -196,6 +204,7 @@ function PricingPage() {
               >
                 <div className="pricing-card-header">
                   <h2 className="pricing-tier-name">{tier.name}</h2>
+                  <p className="pricing-duration">{tier.duration}</p>
                   <div className="pricing-amount">
                     {tier.priceMax ? (
                       <>
@@ -216,7 +225,7 @@ function PricingPage() {
                     ))}
                   </ul>
                   <a 
-                    href="https://wa.me/6285190084149?text=Hi,%20I'm%20interested%20in%20your%203D%20Animation%20services" 
+                    href="https://wa.me/6285190084149?text=Hi,%20I'm%20interested%20in%20your%20Video%20Editing%20services" 
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="pricing-cta-button"
@@ -298,15 +307,15 @@ function PricingPage() {
         {/* Project Timeline */}
         <div className="pricing-timeline">
           <h3 className="timeline-title">Project Timeline</h3>
-          <p className="timeline-subtitle">Our streamlined process from concept to delivery</p>
+          <p className="timeline-subtitle">Our streamlined editing workflow from start to finish</p>
           <div className="timeline-container">
             <div className="timeline-step">
               <div className="timeline-step-number">
                 <span>1</span>
               </div>
               <div className="timeline-step-content">
-                <h4>Briefing</h4>
-                <p>Initial consultation to understand your vision, requirements, and project goals</p>
+                <h4>Briefing & Upload</h4>
+                <p>Discuss your vision, requirements, and upload raw footage securely to our platform</p>
               </div>
             </div>
             <div className="timeline-connector"></div>
@@ -315,8 +324,8 @@ function PricingPage() {
                 <span>2</span>
               </div>
               <div className="timeline-step-content">
-                <h4>Concept Development</h4>
-                <p>Creating sketches, mood boards, and initial concepts for your approval</p>
+                <h4>Rough Cut</h4>
+                <p>We create an initial edit with basic cuts, transitions, and structure for your review</p>
               </div>
             </div>
             <div className="timeline-connector"></div>
@@ -325,8 +334,8 @@ function PricingPage() {
                 <span>3</span>
               </div>
               <div className="timeline-step-content">
-                <h4>Production</h4>
-                <p>3D modeling, texturing, rigging, and animation based on approved concept</p>
+                <h4>Fine Tuning</h4>
+                <p>Color grading, audio mixing, effects, and refinements based on your feedback</p>
               </div>
             </div>
             <div className="timeline-connector"></div>
@@ -335,8 +344,8 @@ function PricingPage() {
                 <span>4</span>
               </div>
               <div className="timeline-step-content">
-                <h4>Delivery</h4>
-                <p>Final review, revisions, and delivery of all files to client</p>
+                <h4>Final Delivery</h4>
+                <p>Export in your preferred format and resolution, ready for publishing</p>
               </div>
             </div>
           </div>
@@ -346,4 +355,4 @@ function PricingPage() {
   );
 }
 
-export default PricingPage;
+export default VideoEditingPricingPage;

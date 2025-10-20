@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
 import '../App.css';
-import TiltedCard from '../components/TiltedCard/TiltedCard';
 
 function PortoPage() {
   const [shouldLoadVideo, setShouldLoadVideo] = useState(false);
@@ -28,48 +27,6 @@ function PortoPage() {
       if (section) observer.unobserve(section);
     };
   }, [shouldLoadVideo]);
-  const portfolioItems = [
-    {
-      id: 1,
-      title: "Kendrick Lamar - GNX",
-      image: "/images/portfolio/sample.jpg",
-      caption: "Creative Front-end Development"
-    },
-    {
-      id: 2,
-      title: "Project 2", 
-      image: "/images/portfolio/sample.jpg",
-      caption: "Web Design & Development"
-    },
-    {
-      id: 3,
-      title: "Project 3",
-      image: "/images/portfolio/sample.jpg", 
-      caption: "UI/UX Design"
-    },
-    {
-      id: 4,
-      title: "Project 4",
-      image: "/images/portfolio/sample.jpg",
-      caption: "Mobile App Development"
-    },
-    {
-      id: 5,
-      title: "Project 5",
-      image: "/images/portfolio/sample.jpg",
-      caption: "Creative Coding"
-    },
-    {
-      id: 6,
-      title: "Project 6",
-      image: "/images/portfolio/sample.jpg",
-      caption: "Interactive Design"
-    }
-  ];
-
-  // Deteksi ukuran layar untuk responsive props
-  const isMobile = window.innerWidth <= 480;
-  // const isTablet = window.innerWidth <= 768 && window.innerWidth > 480;
 
   return (
     <section className="porto-container">
@@ -85,7 +42,7 @@ function PortoPage() {
         
         <div className="porto-right-section">
           <div className="porto-status">
-            <span className="status-text">RECENT</span>
+            <span className="status-text">SHOWREEL</span>
             <span className="status-dot"></span>
           </div>
         </div>

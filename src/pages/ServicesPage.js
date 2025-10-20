@@ -9,6 +9,8 @@ function ServicesPage() {
   const handleServiceClick = (serviceTitle) => {
     if (serviceTitle === "3D Animation") {
       navigate('/pricing/3d-animation');
+    } else if (serviceTitle === "Video Editing") {
+      navigate('/pricing/video-editing');
     }
   };
 
@@ -92,23 +94,26 @@ function ServicesPage() {
       </div>
 
       <div className="services-grid">
-        {services.map((service) => (
-          <div 
-            key={service.id} 
-            className={`service-card ${service.title === "3D Animation" ? "service-card-clickable" : ""}`}
-            onClick={() => handleServiceClick(service.title)}
-            style={service.title === "3D Animation" ? { cursor: 'pointer' } : {}}
-          >
-            <div className="service-icon">
-              <img src={service.icon} alt={service.title} />
+        {services.map((service) => {
+          const hasPrice = service.title === "3D Animation" || service.title === "Video Editing";
+          return (
+            <div 
+              key={service.id} 
+              className={`service-card ${hasPrice ? "service-card-clickable" : ""}`}
+              onClick={() => handleServiceClick(service.title)}
+              style={hasPrice ? { cursor: 'pointer' } : {}}
+            >
+              <div className="service-icon">
+                <img src={service.icon} alt={service.title} />
+              </div>
+              <h3 className="service-title">{service.title}</h3>
+              <p className="service-description">{service.description}</p>
+              {hasPrice && (
+                <div className="service-badge">View Pricing →</div>
+              )}
             </div>
-            <h3 className="service-title">{service.title}</h3>
-            <p className="service-description">{service.description}</p>
-            {service.title === "3D Animation" && (
-              <div className="service-badge">View Pricing →</div>
-            )}
-          </div>
-        ))}
+          );
+        })}
       </div>
 
       {/* Logo Software Editing */}
