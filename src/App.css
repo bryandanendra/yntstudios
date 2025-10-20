@@ -1950,12 +1950,6 @@
   display: grid;
   grid-template-columns: 2fr 2fr 1.5fr;
   border-bottom: 1px solid #f0f0f0;
-  transition: all 0.3s ease;
-}
-
-.vfx-table-row:hover {
-  background: linear-gradient(90deg, #f8f9ff 0%, #fff 100%);
-  transform: translateX(4px);
 }
 
 .vfx-table-row:last-child {
@@ -2261,7 +2255,7 @@
   flex-direction: row;
   align-items: flex-start;
   justify-content: center;
-  gap: 60px;
+  gap: 30px;
   max-width: 1200px;
   margin: 0 auto;
   position: relative;
@@ -2312,12 +2306,12 @@
 }
 
 .timeline-step-content p {
-  font-size: clamp(0.9rem, 1.6vw, 1rem);
+  font-size: clamp(0.8rem, 1.4vw, 0.9rem);
   color: rgba(255, 255, 255, 0.7);
   line-height: 1.7;
   margin: 0;
   padding: 0 15px;
-  max-width: 280px;
+  max-width: 450px;
 }
 
 .timeline-connector {

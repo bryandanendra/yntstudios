@@ -353,7 +353,7 @@ function VideoEditingPricingPage() {
               </div>
               <div className="timeline-step-content">
                 <h4>Briefing & Upload</h4>
-                <p>Discuss your vision, requirements, and upload raw footage securely to our platform</p>
+                <p>Discuss your vision, requirements, down payment, and upload raw footage securely to our platform</p>
               </div>
             </div>
             <div className="timeline-connector"></div>
@@ -380,6 +380,16 @@ function VideoEditingPricingPage() {
             <div className="timeline-step">
               <div className="timeline-step-number">
                 <span>4</span>
+              </div>
+              <div className="timeline-step-content">
+                <h4>Preview</h4>
+                <p>Preview to client and revisions based on your feedback to ensure perfection</p>
+              </div>
+            </div>
+            <div className="timeline-connector"></div>
+            <div className="timeline-step">
+              <div className="timeline-step-number">
+                <span>5</span>
               </div>
               <div className="timeline-step-content">
                 <h4>Final Delivery</h4>

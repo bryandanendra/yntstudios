@@ -400,7 +400,7 @@ function PricingPage() {
               </div>
               <div className="timeline-step-content">
                 <h4>Briefing</h4>
-                <p>Initial consultation to understand your vision, requirements, and project goals</p>
+                <p>Initial consultation to understand your vision, requirements, down payment, and project goals</p>
               </div>
             </div>
             <div className="timeline-connector"></div>
@@ -429,8 +429,18 @@ function PricingPage() {
                 <span>4</span>
               </div>
               <div className="timeline-step-content">
+                <h4>Preview</h4>
+                <p>Preview to client and revisions based on your feedback to ensure perfection</p>
+              </div>
+            </div>
+            <div className="timeline-connector"></div>
+            <div className="timeline-step">
+              <div className="timeline-step-number">
+                <span>5</span>
+              </div>
+              <div className="timeline-step-content">
                 <h4>Delivery</h4>
-                <p>Final review, revisions, and delivery of all files to client</p>
+                <p>Final review and delivery of all files to client</p>
               </div>
             </div>
           </div>
