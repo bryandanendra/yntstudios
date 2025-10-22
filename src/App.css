@@ -2325,13 +2325,30 @@
   }
 
   .back-button {
+    position: fixed;
+    top: 20px;
+    left: 20px;
     padding: 10px 20px;
     font-size: 0.95rem;
-    margin-bottom: 24px;
+    margin-bottom: 0;
+    z-index: 9999;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+  }
+
+  /* Hide back button when staggered menu is open */
+  .staggered-menu-wrapper[data-open="true"] ~ * .back-button,
+  body:has(.staggered-menu-wrapper[data-open="true"]) .back-button {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
   }
 
   .pricing-header {
     margin-bottom: 40px;
+    padding-top: 70px;
   }
 
   .pricing-carousel-container {
@@ -2581,13 +2598,30 @@
   }
 
   .back-button {
+    position: fixed;
+    top: 20px;
+    left: 16px;
     padding: 8px 16px;
     font-size: 0.9rem;
-    margin-bottom: 20px;
+    margin-bottom: 0;
+    z-index: 9999;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+  }
+
+  /* Hide back button when staggered menu is open */
+  .staggered-menu-wrapper[data-open="true"] ~ * .back-button,
+  body:has(.staggered-menu-wrapper[data-open="true"]) .back-button {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
   }
 
   .pricing-header {
     margin-bottom: 32px;
+    padding-top: 60px;
   }
 
   .pricing-carousel-container {
