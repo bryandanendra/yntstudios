@@ -10,6 +10,7 @@ const PortoPage = lazy(() => import('./pages/PortoPage'));
 const ServicesPage = lazy(() => import('./pages/ServicesPage'));
 const PricingPage = lazy(() => import('./pages/PricingPage'));
 const VideoEditingPricingPage = lazy(() => import('./pages/VideoEditingPricingPage'));
+const WebsitePricingPage = lazy(() => import('./pages/WebsitePricingPage'));
 const ReviewsPage = lazy(() => import('./pages/ReviewsPage'));
 const ContactPage = lazy(() => import('./pages/ContactPage'));
 
@@ -50,6 +51,7 @@ function App() {
             <Route path="/" element={<LandingPage />} />
             <Route path="/pricing/3d-project" element={<PricingPage />} />
             <Route path="/pricing/video-editing" element={<VideoEditingPricingPage />} />
+            <Route path="/pricing/website" element={<WebsitePricingPage />} />
           </Routes>
         </Suspense>
       </div>

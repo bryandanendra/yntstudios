@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../App.css';
 
-function VideoEditingPricingPage() {
+function WebsitePricingPage() {
   const navigate = useNavigate();
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
@@ -11,17 +11,15 @@ function VideoEditingPricingPage() {
   const isDragging = useRef(false);
 
   const [openFaq, setOpenFaq] = useState(null);
-  const [userCountry, setUserCountry] = useState('ID'); // Default to Indonesia
+  const [userCountry, setUserCountry] = useState('ID');
 
   useEffect(() => {
-    // Detect user location using IP geolocation
     fetch('https://ipapi.co/json/')
       .then(response => response.json())
       .then(data => {
         setUserCountry(data.country_code || 'ID');
       })
       .catch(() => {
-        // Fallback to timezone detection
         const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
         if (timezone.includes('Jakarta') || timezone.includes('Asia')) {
           setUserCountry('ID');
@@ -40,7 +38,7 @@ function VideoEditingPricingPage() {
         maximumFractionDigits: 0
       }).format(price);
     } else {
-      const usdPrice = price / 15000; // Approximate conversion rate
+      const usdPrice = price / 15000;
       return new Intl.NumberFormat('en-US', {
         style: 'currency',
         currency: 'USD',
@@ -53,48 +51,78 @@ function VideoEditingPricingPage() {
   const pricingTiers = [
     {
       id: 1,
-      name: "Short Form",
-      duration: "1-3 Minutes",
-      priceMin: 150000,
-      priceMax: 350000,
-      description: "Perfect for social media content, short promotional videos, or quick highlights. Includes basic editing, transitions, and color correction.",
+      name: "Landing Page",
+      type: "Single Page",
+      priceMin: 2500000,
+      priceMax: 5000000,
+      description: "Perfect for personal portfolios, product launches, or simple business presentations. Modern, responsive, and optimized for conversions.",
       features: [
-        "✓ 1-3 minutes duration",
-        "✓ Basic color correction",
-        "✓ Smooth transitions",
-        "✓ Background music & sound effects"
+        "✓ 1 Page Design",
+        "✓ Responsive Design (Mobile & Desktop)",
+        "✓ Contact Form Integration",
+        "✓ SEO Optimization",
+        "✓ Fast Loading Speed",
+        "✓ 2 Revisions"
       ],
       featured: false,
       ctaText: "Get Started"
     },
     {
       id: 2,
-      name: "Medium Form",
-      duration: "4-7 Minutes",
-      priceMin: 350000,
-      priceMax: 650000,
-      description: "Ideal for YouTube videos, corporate presentations, or detailed product showcases. Includes advanced editing, motion graphics, and professional color grading.",
+      name: "Business Website",
+      type: "Multi Page",
+      priceMin: 5000000,
+      priceMax: 10000000,
+      description: "Ideal for small to medium businesses. Includes multiple pages, CMS integration, and advanced features for professional online presence.",
       features: [
-        "✓ 4-7 minutes duration",
-        "✓ Advanced color grading",
-        "✓ Motion graphics & animations",
-        "✓ Professional audio mixing"
+        "✓ Up to 7 Pages",
+        "✓ CMS Integration (WordPress/Custom)",
+        "✓ Advanced SEO",
+        "✓ Blog Section",
+        "✓ Contact & Forms",
+        "✓ Social Media Integration",
+        "✓ 3 Revisions",
+        "✓ 3 Months Support"
       ],
       featured: true,
       ctaText: "Get Started"
     },
     {
       id: 3,
-      name: "Long Form",
-      duration: "8+ Minutes",
+      name: "E-Commerce",
+      type: "Online Store",
+      priceMin: 10000000,
+      priceMax: 25000000,
+      description: "Full-featured online store with payment gateway, inventory management, and customer dashboard. Perfect for selling products online.",
+      features: [
+        "✓ Unlimited Products",
+        "✓ Payment Gateway Integration",
+        "✓ Shopping Cart & Checkout",
+        "✓ Customer Dashboard",
+        "✓ Inventory Management",
+        "✓ Order Tracking",
+        "✓ Admin Panel",
+        "✓ 6 Months Support"
+      ],
+      featured: false,
+      ctaText: "Get Started"
+    },
+    {
+      id: 4,
+      name: "Custom Web App",
+      type: "Full Stack",
       priceMin: "Custom",
       priceMax: null,
-      description: "For documentaries, long-form content, or complex projects requiring extensive editing. Fully customized workflow with premium effects and detailed post-production.",
+      description: "Complex web applications with custom features, API integrations, and advanced functionality. Tailored to your specific business needs.",
       features: [
-        "✓ 8+ minutes duration",
-        "✓ Cinematic color grading",
-        "✓ Advanced VFX & compositing",
-        "✓ Full post-production suite"
+        "✓ Custom Features & Functionality",
+        "✓ API Development & Integration",
+        "✓ Database Design",
+        "✓ User Authentication",
+        "✓ Admin Dashboard",
+        "✓ Scalable Architecture",
+        "✓ 1 Year Support",
+        "✓ Maintenance Package"
       ],
       featured: false,
       ctaText: "Contact Us"
@@ -104,33 +132,37 @@ function VideoEditingPricingPage() {
   const faqs = [
     {
       id: 1,
-      question: "What video formats do you accept?",
-      answer: "We accept all major video formats including MP4, MOV, and raw footage from cameras. If you have a specific format, feel free to contact us and we'll accommodate it."
+      question: "What technologies do you use?",
+      answer: "We use modern technologies like React, Next.js, Node.js, WordPress, and other cutting-edge frameworks depending on your project needs. All websites are built with responsive design and optimized performance."
     },
     {
       id: 2,
-      question: "How long does the editing process take?",
-      answer: "Short Form (1-3 min): 3-5 days, Medium Form (4-7 min): 5-8 days, Long Form (8+ min): 10-15 days. Rush delivery available with additional cost."
+      question: "How long does it take to build a website?",
+      answer: "Landing Page: 1-2 weeks, Business Website: 3-4 weeks, E-Commerce: 6-8 weeks, Custom Web App: 8-12 weeks. Timeline may vary based on project complexity and revision rounds."
     },
     {
       id: 3,
-      question: "Do you provide revisions?",
-      answer: "Yes! We include 2-3 revision rounds in all packages to ensure the final video meets your expectations. Additional revisions can be arranged if needed."
+      question: "Do you provide hosting and domain?",
+      answer: "Yes! We can help you with domain registration and hosting setup. We also offer managed hosting services with monthly maintenance packages."
     },
     {
       id: 4,
-      question: "Can you add subtitles and captions?",
-      answer: "Absolutely! We can add subtitles, captions, and text overlays in multiple languages. This service is included in all packages."
+      question: "Will my website be mobile-friendly?",
+      answer: "Absolutely! All our websites are fully responsive and optimized for mobile, tablet, and desktop devices. We follow mobile-first design principles."
     },
     {
       id: 5,
-      question: "What about music and sound effects?",
-      answer: "We provide royalty-free background music and sound effects. If you have specific tracks you'd like to use, you can provide them, or we can source licensed music for an additional fee."
+      question: "Do you provide website maintenance?",
+      answer: "Yes, we offer maintenance packages including content updates, security updates, backups, and technical support. Maintenance terms vary by package."
+    },
+    {
+      id: 6,
+      question: "Can I update the website content myself?",
+      answer: "Yes! We provide CMS (Content Management System) for Business and E-Commerce packages, allowing you to easily update content, images, and blog posts without coding knowledge."
     }
   ];
 
   useEffect(() => {
-    // Scroll to top when page loads
     window.scrollTo(0, 0);
     
     const checkMobile = () => {
@@ -181,8 +213,8 @@ function VideoEditingPricingPage() {
 
         {/* Header */}
         <div className="pricing-header">
-          <h1 className="pricing-main-title">Video Editing</h1>
-          <p className="pricing-subtitle">Professional video editing services for all your content needs</p>
+          <h1 className="pricing-main-title">Website Development</h1>
+          <p className="pricing-subtitle">Professional website solutions for your business needs</p>
         </div>
 
         {/* Pricing Cards Carousel */}
@@ -204,7 +236,7 @@ function VideoEditingPricingPage() {
               >
                 <div className="pricing-card-header">
                   <h2 className="pricing-tier-name">{tier.name}</h2>
-                  <p className="pricing-duration">{tier.duration}</p>
+                  <p className="pricing-duration">{tier.type}</p>
                   <div className="pricing-amount">
                     {tier.priceMax ? (
                       <>
@@ -225,7 +257,7 @@ function VideoEditingPricingPage() {
                     ))}
                   </ul>
                   <a 
-                    href="https://wa.me/6285190084149?text=Hi,%20I'm%20interested%20in%20your%20Video%20Editing%20services" 
+                    href="https://wa.me/6285190084149?text=Hi,%20I'm%20interested%20in%20your%20Website%20Development%20services" 
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="pricing-cta-button"
@@ -252,72 +284,28 @@ function VideoEditingPricingPage() {
           )}
         </div>
 
-        {/* Additional VFX Pricing Section */}
+        {/* Technology Stack */}
         <div className="vfx-pricing-section">
-          <h2 className="vfx-pricing-title">Additional VFX Services</h2>
-          <p className="vfx-pricing-subtitle">Prices may vary depending on the complexity of the project</p>
+          <h2 className="vfx-pricing-title">Technology Stack</h2>
+          <p className="vfx-pricing-subtitle">Modern technologies we use to build your website</p>
           
-          <div className="vfx-pricing-table">
-            <div className="vfx-table-header">
-              <div className="vfx-header-cell">VFX Services</div>
-              <div className="vfx-header-cell">Price Per Unit (IDR)</div>
-              <div className="vfx-header-cell">Notes</div>
+          <div className="tech-stack-grid">
+            <div className="tech-stack-item">
+              <h3>Frontend</h3>
+              <p>React, Next.js, Vue.js, HTML5, CSS3, TailwindCSS, GSAP</p>
             </div>
-            
-            <div className="vfx-table-body">
-              <div className="vfx-table-row">
-                <div className="vfx-cell">Rotoscoping / Keying</div>
-                <div className="vfx-cell">{formatPrice(250000)} – {formatPrice(600000)}</div>
-                <div className="vfx-cell">Per shot</div>
-              </div>
-              
-              <div className="vfx-table-row">
-                <div className="vfx-cell">Compositing (2D/3D)</div>
-                <div className="vfx-cell">{formatPrice(500000)} – {formatPrice(1500000)}</div>
-                <div className="vfx-cell">Per shot</div>
-              </div>
-              
-              <div className="vfx-table-row">
-                <div className="vfx-cell">Motion Graphics / Title Animation</div>
-                <div className="vfx-cell">{formatPrice(400000)} – {formatPrice(1000000)}</div>
-                <div className="vfx-cell">Per minutes</div>
-              </div>
+            <div className="tech-stack-item">
+              <h3>Backend</h3>
+              <p>Node.js, Express, PHP, WordPress, Laravel</p>
             </div>
-          </div>
-          
-          {/* <div className="vfx-note">
-            <p>💡 <strong>Note:</strong> Prices may vary depending on project complexity. Contact us for a free consultation and special offers!</p>
-          </div> */}
-        </div>
-
-        {/* Showcase Video Section */}
-        <div className="pricing-showcase">
-          <h2 className="showcase-title">See our work in action</h2>
-          <div className="showcase-video-wrapper">
-            <video 
-              className="showcase-video"
-              autoPlay
-              loop
-              muted
-              playsInline
-            >
-              <source src="https://res.cloudinary.com/ds4ota3jr/video/upload/v1759743031/Compres_negeri_awan_e1kjv3.mp4" type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
-          </div>
-          
-          {/* Second Video */}
-          <div className="showcase-video-wrapper showcase-video-second">
-            <video 
-              className="showcase-video"
-              autoPlay
-              loop
-              muted
-              playsInline
-            >
-              <source src="https://res.cloudinary.com/ds4ota3jr/video/upload/v1759745707/VFX_Air_Terjun_compres_katb2z.mp4" type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
+            <div className="tech-stack-item">
+              <h3>Database</h3>
+              <p>MongoDB, MySQL, PostgreSQL, Firebase</p>
+            </div>
+            <div className="tech-stack-item">
+              <h3>Deployment</h3>
+              <p>Vercel, Netlify, AWS, Digital Ocean, cPanel</p>
+            </div>
           </div>
         </div>
 
@@ -344,16 +332,16 @@ function VideoEditingPricingPage() {
 
         {/* Project Timeline */}
         <div className="pricing-timeline">
-          <h3 className="timeline-title">Project Timeline</h3>
-          <p className="timeline-subtitle">Our streamlined editing workflow from start to finish</p>
+          <h3 className="timeline-title">Development Process</h3>
+          <p className="timeline-subtitle">Our streamlined workflow from concept to launch</p>
           <div className="timeline-container">
             <div className="timeline-step">
               <div className="timeline-step-number">
                 <span>1</span>
               </div>
               <div className="timeline-step-content">
-                <h4>Briefing & Upload</h4>
-                <p>Discuss your vision, requirements, down payment, and upload raw footage securely to our platform</p>
+                <h4>Discovery & Planning</h4>
+                <p>Understand your goals, target audience, and create a detailed project plan</p>
               </div>
             </div>
             <div className="timeline-connector"></div>
@@ -362,8 +350,8 @@ function VideoEditingPricingPage() {
                 <span>2</span>
               </div>
               <div className="timeline-step-content">
-                <h4>Rough Cut</h4>
-                <p>We create an initial edit with basic cuts, transitions, and structure for your review</p>
+                <h4>Design & Prototype</h4>
+                <p>Create wireframes, mockups, and interactive prototypes for your approval</p>
               </div>
             </div>
             <div className="timeline-connector"></div>
@@ -372,8 +360,8 @@ function VideoEditingPricingPage() {
                 <span>3</span>
               </div>
               <div className="timeline-step-content">
-                <h4>Fine Tuning</h4>
-                <p>Color grading, audio mixing, effects, and refinements based on your feedback</p>
+                <h4>Development</h4>
+                <p>Build your website with clean code, responsive design, and best practices</p>
               </div>
             </div>
             <div className="timeline-connector"></div>
@@ -382,8 +370,8 @@ function VideoEditingPricingPage() {
                 <span>4</span>
               </div>
               <div className="timeline-step-content">
-                <h4>Preview</h4>
-                <p>Preview to client and revisions based on your feedback to ensure perfection</p>
+                <h4>Testing & QA</h4>
+                <p>Rigorous testing across devices, browsers, and performance optimization</p>
               </div>
             </div>
             <div className="timeline-connector"></div>
@@ -392,8 +380,8 @@ function VideoEditingPricingPage() {
                 <span>5</span>
               </div>
               <div className="timeline-step-content">
-                <h4>Final Delivery</h4>
-                <p>Export in your preferred format and resolution, ready for publishing</p>
+                <h4>Launch & Support</h4>
+                <p>Deploy to production and provide ongoing support and maintenance</p>
               </div>
             </div>
           </div>
@@ -403,4 +391,4 @@ function VideoEditingPricingPage() {
   );
 }
 
-export default VideoEditingPricingPage;
+export default WebsitePricingPage;
